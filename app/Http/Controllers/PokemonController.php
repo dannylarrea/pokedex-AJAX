@@ -12,8 +12,20 @@ class PokemonController extends Controller
         return view('pokedex');
     }
 
-    public function read(){
-        $pokemons=DB::select('select nombre, numero_pokedex from pokemon');
+    public function read(Request $request){
+        $filtro = $request->input('filtro');
+        if ($filtro=='') {
+            $pokemons=DB::select('select * from pokemon');
+        }elseif ($filtro=='favorito') {
+            $pokemons=DB::select('select * from pokemon where favorito = 1');
+        } else{
+            $pokemons=DB::select('select * from pokemon where nombre like ?', ["%".$filtro."%"]);
+        }
+        foreach($pokemons as $i){
+            if ($i->imagen!=null) {
+                $i->imagen = base64_encode($i->imagen);
+            }
+        }
         return response()->json($pokemons, 200);
         // return JSON;
     }

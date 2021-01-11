@@ -33,36 +33,9 @@
             <h3 id="mensaje">Aquí verás las últimas modificaciones...</h3>
         </div>
     </div>
-
+    <!--Sección que vamos a recargar con AJAX-->
     <div class="row" id="section-3">
         
-        @foreach($pokemons as $pokemon)
-        <div class="column-5">
-
-            @if ($pokemon->imagen == null)
-                <img src="images/unown.png" style="opacity:.3" alt="error">
-                <h4>{{$pokemon->nombre}}</h4>
-                <h4>{{$pokemon->numero_pokedex}}</h4>
-                <div><img src="images/up_image.png" alt="error" style="opacity:.3"></div>
-
-            @else
-                <img src="data:image/png;base64,{{ chunk_split(base64_encode($pokemon->imagen))}}" alt="error">
-                <h4>{{$pokemon->nombre}}</h4>
-                <h4>{{$pokemon->numero_pokedex}}</h4>
-                <div>
-                    <img src="images/catched.png" alt="error">
-                    @if ($pokemon->favorito == 1)
-                        <img src="images/fav.png" alt="error">
-                    @else
-                        <img src="images/fav.png" style="opacity:.3" alt="error">
-                    @endif
-
-                </div>
-            @endif
-
-
-        </div>         
-        @endforeach
     </div>
 
     <!-- The Modal -->

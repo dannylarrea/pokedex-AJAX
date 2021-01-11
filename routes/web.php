@@ -8,4 +8,4 @@ use App\Http\Controllers\PokemonController;
     return view('welcome');
 }); */
 Route::get('/', [PokemonController::class, 'index']);
-Route::get('read', [PokemonController::class, 'read']);
+Route::post('read', [PokemonController::class, 'read']);
