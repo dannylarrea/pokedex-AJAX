@@ -60,3 +60,26 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+----
+# Algunos pasos...
+1. crear el proyecto: `composer create-project --prefer-dist laravel/laravel pokedex`
+1. editar el fichero .gitignore (se encuentra en la raíz del proyecto Laravel) para subir el proyecto entero a un repositorio de GitHub
+1. subir el proyecto a un repositorio:
+    ```
+    git init
+    git add .
+    git commit -m "first commit"
+    git branch -M main
+    git remote add origin https://github.com/username/reponame.git
+    git push -u origin main
+    ```
+1. dar permisos:
+    ```
+    // Permisos (chmod ...) a los directorios:`
+    chmod -R 775 resources/
+    chmod -R 777 storage/
+    ```
+1. agregar al proyecto los elementos del zip "Material Pokédex - Laravel AJAX"
+1. configurar el fichero .env
+1. crear controlador `php artisan make:controller PokemonController`, rutas (caminos de controladores: `use App\Http\Controllers\PokemonController;`), funciones del controlador (`use Illuminate\Support\Facades\DB;`), etc.
